@@ -8,6 +8,13 @@ const button = document.getElementById('send')
 button.disabled = true
 button.addEventListener('click', sendMessage, false)
 
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("send").click();
+    }
+  });
+
 server.onopen = function() {
     button.disabled = false
 }
@@ -19,13 +26,12 @@ server.onmessage = function(event) {
 
 function generateMessageEntry(msg, type) {
     const newMessage = document.createElement('div')
-    console.log(typeof msg,msg)
-    newMessage.innerText = `${type} says: ${msg}`
+    newMessage.innerText = `${type} : ${msg}`
     message.appendChild(newMessage)
 }
 
 function sendMessage() {
     const text = input.value
-    generateMessageEntry(text, 'Client')
+    generateMessageEntry(text, 'You')
     server.send(text)
 }

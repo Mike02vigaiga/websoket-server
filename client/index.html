@@ -5,17 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
-    <title>WebSocket learning enviroment</title> 
+    <link rel="stylesheet" href="green.css" type="text/css" title="ice">
+    <title>WebSocket chat app</title> 
   </head>
 
   <body> 
     <h1>
-        WebSocket say:
+        - Temporary Chat -
     </h1> 
   </br>
-  <div id="messages">
-    <input id="message">
-    <button type="button" id="send">Broadcast message</button>
+    
+
+        <div class="form">
+                        
+            <div id="chatpane">
+              <ul id="messages"></ul>
+            </div>
+    
+            <div id="userpane">
+                <h4>RULES:</h4>
+                <h5>for a safe environment</h5>
+                <ul id="userlist">
+                    -
+                    <li>not send hate message</li>
+                    -
+                    <li>treats everyone fairly</li>
+                    -
+                    <li>not be discriminatory</li>
+                </ul>
+            </div>
+                    
+            <p class="clear">
+                    
+                    
+            <input class="mytext" id="message" name="mytext" type="text" onFocus="textFocus=true" onBlur="textFocus=false">	
+            <button type="button" id="send">send</button>
     <script src="script.js"></script>
   </div>
   </body>

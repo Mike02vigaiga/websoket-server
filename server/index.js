@@ -14,7 +14,7 @@ wss.on('connection', function(ws) {
     ws.on('message', function incoming(data,isBinary) {
         wss.clients.forEach(function each(client) {
             if (client.readyState === Websocket.OPEN) {
-                client.send(data, { binary: isBinary })
+                if (client !== ws) client.send(data, { binary: isBinary })
             }
         })
     })
